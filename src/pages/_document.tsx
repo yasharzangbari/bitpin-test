@@ -1,10 +1,12 @@
+import React from "react";
 import { Html, Head, Main, NextScript } from "next/document";
+import { IranSansX } from "~/theme/font";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="fa" className={IranSansX.className} dir="rtl">
       <Head />
-      <body>
+      <body className={IranSansX.className}>
         <Main />
         <NextScript />
       </body>

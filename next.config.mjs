@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
+import nextTranslate from "next-translate-plugin";
 const nextConfig = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
+  experimental: { forceSwcTransforms: true },
+  images: {
+    domains: [],
+  },
+  compiler: {
+    styledComponents: true,
+  },
 };
 
-export default nextConfig;
+export default nextTranslate(nextConfig);

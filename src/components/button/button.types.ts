@@ -22,4 +22,5 @@ export type ButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, "size"> & {
   color?: BUTTON_COLOR | "primary" | "secondary";
   title?: string;
   type?: "button" | "submit";
+  active?: boolean;
 };

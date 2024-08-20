@@ -4,7 +4,7 @@ import { BUTTON_COLOR, BUTTON_SHAPE, BUTTON_SIZE } from "./button.types";
 
 const token = getButtonToken();
 
-export const Button = styled.button`
+export const Button = styled.button<{ active: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,8 +43,12 @@ export const Button = styled.button`
     }
 
     &.button--${BUTTON_COLOR.PRIMARY} {
-      color: ${({ theme }) => theme.colors.textColorFix};
-      background-color: ${({ theme }) => theme.colors.green};
+      color: ${(props) =>
+        props.active
+          ? props.theme.colors.whiteFix
+          : props.theme.colors.textColorFix};
+      background-color: ${(props) =>
+        props.active ? props.theme.colors.greenDark : props.theme.colors.green};
     }
   }
 `;

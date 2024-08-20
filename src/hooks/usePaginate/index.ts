@@ -16,8 +16,8 @@ export const usePaginate = (currencies?: Currencies[]) => {
     const currentPage = queryParam.get("page");
 
     if (currentPage !== null) {
-      const currentOffset = (+currentPage * itemsPerPage) % lengthOfCurrencies;
-
+      const page = +currentPage === 1 ? 0 : +currentPage - 1;
+      const currentOffset = (page * itemsPerPage) % lengthOfCurrencies;
       setItemOffset(currentOffset);
     }
   }, [currencies]);
@@ -25,10 +25,8 @@ export const usePaginate = (currencies?: Currencies[]) => {
   const pageCount = Math.ceil(lengthOfCurrencies / itemsPerPage);
 
   const onChangePage = (page: number) => {
-    const newOffset = (page * itemsPerPage) % lengthOfCurrencies;
-
-    setQuery("page", page.toString());
-
+    const newOffset = (page - 1 * itemsPerPage) % lengthOfCurrencies;
+    setQuery("page", `${page}`);
     setItemOffset(newOffset);
   };
 

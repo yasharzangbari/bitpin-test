@@ -13,11 +13,7 @@ export const useQueryParams = () => {
       const params = new URLSearchParams(searchParams);
       const hasQuery = queryParam.get(key);
 
-      if (hasQuery === value) {
-        params.delete(key);
-      } else {
-        params.set(key, value);
-      }
+      params.set(key, value);
 
       router.replace(`${pathname}?${params.toString()}`);
     },

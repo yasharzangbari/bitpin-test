@@ -4,8 +4,7 @@ import { useRequest } from "~/hooks/useRequest";
 import { endpoints } from "~/lib/api/endpoints";
 import * as Styled from "./index.styled";
 import { Markets } from "~/types/markets";
-import { CurrencyList } from "~/components";
-import ReactPaginate from "react-paginate";
+import { CurrencyList, Pagination } from "~/components";
 import { usePaginate } from "~/hooks/usePaginate";
 import { useCurrencies } from "~/hooks/useCurrencies";
 
@@ -18,14 +17,10 @@ const HomePage = () => {
   return (
     <Styled.HomeContainer>
       <CurrencyList currencies={currentItems} />
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={onChangePage}
-        pageRangeDisplayed={itemsPerPage}
-        pageCount={itemsPerPage}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
+      <Pagination
+        length={result?.length}
+        itemsPerPage={itemsPerPage}
+        onChangePage={onChangePage}
       />
     </Styled.HomeContainer>
   );

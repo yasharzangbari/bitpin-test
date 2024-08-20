@@ -39,7 +39,7 @@ export const lightTheme = {
   colors: {
     background: "#fff",
     svgFill: "#1a1a1a",
-    listColor: "#fff",
+    listColor: "#d1f8e4",
     textColor: "#404040",
     green: "#4ef09d",
     textColorFix: "#404040",

@@ -6,7 +6,6 @@ import { commaSeparator, toPersianNumber } from "~/utils";
 import { BUTTON_SIZE } from "../button/button.types";
 import { Button } from "~/components";
 import useTranslation from "next-translate/useTranslation";
-import Link from "next/navigation";
 import { Currencies } from "~/types/markets";
 import { useQueryParams } from "~/hooks";
 

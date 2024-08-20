@@ -24,7 +24,7 @@ export const useCurrencies = () => {
         price_info: item.price_info,
         code: item.code,
       }));
-  }, [data, queryParam.toString()]);
+  }, [queryParam.toString(), data?.results]);
 
   return { result, isLoading, currencyType };
 };

@@ -1,6 +1,13 @@
 {
  "sellOrBuy": "خرید/فروش",
  "toman": "تومان",
- "teter": "تتر"
+ "teter": "تتر",
+ "transactions" : "معاملات",
+ "buyOrders" : "سفارشات خرید",
+ "sellOrders" : "سفارشات فرش",
+ "price" : "قیمت",
+ "amount" : "مقدار",
+ "time" : "زمان",
+ "all" : "کل"
 
 }

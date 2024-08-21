@@ -15,16 +15,10 @@ export const useCurrencies = () => {
   );
 
   const result = useMemo(() => {
-    return data?.results
-      ?.filter((item) => item.currency2.code === currencyType)
-      ?.map((item) => ({
-        id: item.id,
-        currency1: item.currency1,
-        currency2: item.currency2,
-        price_info: item.price_info,
-        code: item.code,
-      }));
-  }, [queryParam.toString(), data?.results]);
+    if (!data?.results) return [];
+
+    return data.results.filter((item) => item.currency2.code === currencyType);
+  }, [currencyType, data?.results]);
 
   return { result, isLoading, currencyType };
 };

@@ -7,7 +7,11 @@ export const useRequest = <TData>(
   request: AxiosRequestConfig
 ): UseQueryResult<TData> => {
   return useQuery({
-    queryKey: keys,
+    queryKey: [keys, 1],
     queryFn: () => requestHandler(request),
+    // refetchInterval: 3000,
+    // initialData: undefined,
+    // gcTime: 0,
+    // staleTime: 0,
   });
 };

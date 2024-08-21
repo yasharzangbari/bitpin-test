@@ -14,7 +14,6 @@ export const CurrencySection = styled.div`
   align-items: center;
 
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing["4xl"]}`};
-  /* margin-bottom: ${({ theme }) => theme.spacing.xl}; */
   color: ${({ theme }) => theme.colors.textColor};
   > img {
     width: 32px;

@@ -2,10 +2,13 @@
 
  html, body , * {
   font-family: "__IranSansX_4cf108", "__IranSansX_Fallback_4cf108";
-  direction : "rtl";
-  text-align : right;
   margin: 0;
   padding: 0;
+}
+
+body {
+  text-align: center;
+  margin: auto
 }
 
 a {

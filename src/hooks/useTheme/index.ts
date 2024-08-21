@@ -4,8 +4,8 @@ import { getStorage, setStorage } from "~/utils";
 import { lightTheme, darkTheme } from "~/constants/theme";
 
 export const useTheme = () => {
-  // const currentTheme = getStorage("theme");
-  const [theme, setTheme] = useState(THEME_COLOR.DARK);
+  const currentTheme = getStorage("theme");
+  const [theme, setTheme] = useState(currentTheme || THEME_COLOR.DARK);
 
   const changeTheme = () => {
     const themeColor =

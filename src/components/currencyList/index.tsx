@@ -1,19 +1,16 @@
-"use client";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import * as Styled from "./currencyList.styled";
-import Image from "next/image";
-import { commaSeparator, toPersianNumber } from "~/utils";
+import useTranslation from "next-translate/useTranslation";
+import { commaSeparator } from "~/utils";
 import { BUTTON_SIZE } from "../button/button.types";
 import { Button } from "~/components";
-import useTranslation from "next-translate/useTranslation";
-import { Currencies } from "~/types/markets";
+import { Result } from "~/types/markets";
 import { useQueryParams } from "~/hooks";
+import Link from "next/link";
 
-export const CurrencyList: FC<{ currencies?: Currencies[] }> = ({
-  currencies,
-}) => {
+export const CurrencyList: FC<{ currencies?: Result[] }> = ({ currencies }) => {
   const { t } = useTranslation();
-
+  console.log("currencies", currencies);
   const { setQuery } = useQueryParams();
 
   const changeCurrency = (value: string) => {
@@ -52,9 +49,9 @@ export const CurrencyList: FC<{ currencies?: Currencies[] }> = ({
               {<span>{commaSeparator(currency?.price_info?.change)}</span>}
             </Styled.CurrencySection>
             <Styled.CurrencySection>
-              {/* <Link passHref> */}
-              <Button title={t("sellOrBuy")} size={BUTTON_SIZE.MEDIUM} />
-              {/* </Link> */}
+              <Link href={`/details/${currency.id}`} passHref>
+                <Button title={t("sellOrBuy")} size={BUTTON_SIZE.MEDIUM} />
+              </Link>
             </Styled.CurrencySection>
           </Styled.CurrencyWrapper>
         );

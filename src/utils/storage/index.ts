@@ -1,7 +1,9 @@
+import { isClient } from "~/constants/global";
+
 export const setStorage = (key: string, value: string) => {
-  return localStorage.setItem(key, value);
+  return isClient && localStorage.setItem(key, value);
 };
 
 export const getStorage = (key: string) => {
-  return localStorage.getItem(key);
+  return isClient && localStorage.getItem(key);
 };

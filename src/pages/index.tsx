@@ -5,7 +5,7 @@ import { usePaginate } from "~/hooks/usePaginate";
 import { useCurrencies } from "~/hooks/useCurrencies";
 
 const HomePage = () => {
-  const { result, isLoading, currencyType } = useCurrencies();
+  const { result, isLoading } = useCurrencies();
 
   const { onChangePage, itemsPerPage, currentItems } = usePaginate(result);
 

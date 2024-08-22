@@ -6,8 +6,8 @@ import { ThemeProvider } from "styled-components";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Header } from "~/components";
 import { IranSansX } from "~/theme/font";
-import StyledComponentsRegistry from "~/lib/registry";
 import { GlobalStyles } from "~/theme/globalStyles";
+import StyledComponentsRegistry from "~/lib/registry";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { theme, changeTheme } = useTheme();

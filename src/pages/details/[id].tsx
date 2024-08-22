@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import React, { FC } from "react";
+import React from "react";
 import * as Styled from "./details.styled";
 import { BuyOrders, SellOrders, Tabs, Transactions } from "~/components";
 import { ACTIVE_TABS, tabs } from "~/constants/global";

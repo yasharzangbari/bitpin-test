@@ -1,27 +1,24 @@
-import '@testing-library/jest-dom'
-
-const mockFetchPromise = () => '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
-global.v4 = jest.fn(() => mockFetchPromise)
+import "@testing-library/jest-dom";
 
 // browser mocks
 const localStorageMock = (function () {
-  let store = {}
+  let store = {};
   return {
     getItem: function (key) {
-      return store[key] || null
+      return store[key] || null;
     },
     setItem: function (key, value) {
-      store[key] = value.toString()
+      store[key] = value.toString();
     },
     removeItem: function (key) {
-      delete store[key]
+      delete store[key];
     },
     clear: function () {
-      store = {}
+      store = {};
     },
-  }
-})()
+  };
+})();
 
-Object.defineProperty(window, 'localStorage', {
+Object.defineProperty(window, "localStorage", {
   value: localStorageMock,
-})
+});

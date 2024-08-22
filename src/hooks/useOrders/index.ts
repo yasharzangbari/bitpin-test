@@ -27,20 +27,19 @@ export const useOrders = (key: string) => {
   }, [data]);
 
   const calculateOrder = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!orders || orders.length === 0) return finalResult;
-
+    const orderData = orders || [];
     const value = +event.target.value;
     const valuePercentage = value / 100;
 
     let totalPrice = 0;
     let totalRemain = 0;
 
-    for (const order of orders) {
+    for (const order of orderData) {
       totalPrice += Number(order.price);
       totalRemain += Number(order.remain);
     }
 
-    const averagePrice = totalPrice / orders.length;
+    const averagePrice = totalPrice / orderData.length;
     const remainVolume = totalRemain * valuePercentage;
     const payOut = remainVolume * averagePrice;
 

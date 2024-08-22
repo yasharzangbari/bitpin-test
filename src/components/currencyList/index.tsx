@@ -7,10 +7,11 @@ import { Button } from "~/components";
 import { Result } from "~/types/markets";
 import { useQueryParams } from "~/hooks";
 import Link from "next/link";
+import { routes } from "~/constants/routes";
 
 export const CurrencyList: FC<{ currencies?: Result[] }> = ({ currencies }) => {
   const { t } = useTranslation();
-  console.log("currencies", currencies);
+
   const { setQuery } = useQueryParams();
 
   const changeCurrency = (value: string) => {
@@ -49,7 +50,7 @@ export const CurrencyList: FC<{ currencies?: Result[] }> = ({ currencies }) => {
               {<span>{commaSeparator(currency?.price_info?.change)}</span>}
             </Styled.CurrencySection>
             <Styled.CurrencySection>
-              <Link href={`/details/${currency.id}`} passHref>
+              <Link href={routes.details(currency.id)} passHref>
                 <Button title={t("sellOrBuy")} size={BUTTON_SIZE.MEDIUM} />
               </Link>
             </Styled.CurrencySection>

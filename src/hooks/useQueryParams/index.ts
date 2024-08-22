@@ -11,7 +11,6 @@ export const useQueryParams = () => {
   const setQuery = useCallback(
     (key: string, value: string) => {
       const params = new URLSearchParams(searchParams);
-      const hasQuery = queryParam.get(key);
 
       params.set(key, value);
 

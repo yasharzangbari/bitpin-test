@@ -6,7 +6,6 @@ export const HomeContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
   background-color: ${({ theme }) => theme.colors.background};
   padding: ${({ theme }) => theme.spacing["2xl"]};
 `;

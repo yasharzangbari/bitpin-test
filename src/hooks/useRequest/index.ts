@@ -10,7 +10,7 @@ export const useRequest = <TData>(
   return useQuery({
     queryKey: keys,
     queryFn: () => requestHandler(request),
-    // refetchInterval: refetch ? 3000 : undefined,
+    refetchInterval: refetch ? 3000 : undefined,
     initialData: undefined,
     gcTime: 0,
     staleTime: 0,

@@ -41,7 +41,7 @@ export const BuyOrders = () => {
         label="percent"
         onChange={calculateOrder}
         inputMode="numeric"
-        inputType="number"
+        type="number"
       />
 
       <Styled.Row divider={false}>

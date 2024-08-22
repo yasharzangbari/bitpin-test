@@ -1,13 +1,15 @@
 import React, { FC } from "react";
 import { Button } from "~/components";
 import { BUTTON_SIZE } from "../button/button.types";
-import * as Styled from "./pagination.styled";
 import { useQueryParams } from "~/hooks";
-export const Pagination: FC<{
-  itemsPerPage: number;
-  length?: number;
-  onChangePage: (pageNumber: number) => void;
-}> = ({ itemsPerPage, length = 0, onChangePage }) => {
+import { PaginationProps } from "~/types/global";
+import * as Styled from "./pagination.styled";
+
+export const Pagination: FC<PaginationProps> = ({
+  itemsPerPage,
+  length = 0,
+  onChangePage,
+}) => {
   const { queryParam } = useQueryParams();
   const page = queryParam.get("page");
   const paginationNumbers = [];

@@ -11,9 +11,12 @@ import useTranslation from "next-translate/useTranslation";
 export const Transactions = () => {
   const { t } = useTranslation();
 
+  const router = useRouter();
+  const { id } = router.query;
+
   const { data, isLoading } = useRequest<Transaction[]>(
     [QUERY_KEYS.GET_MATCHES],
-    endpoints.getMarketsMatches(id),
+    endpoints.getMarketsMatches(id as string),
     true
   );
 

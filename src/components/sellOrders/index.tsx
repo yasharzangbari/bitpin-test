@@ -2,9 +2,9 @@ import React from "react";
 import { commaSeparator } from "~/utils";
 import { QUERY_STRING } from "~/constants/global";
 import { useOrders } from "~/hooks";
+import { Input } from "~/components";
 import useTranslation from "next-translate/useTranslation";
 import * as Styled from "./sellOrders.styled";
-import { Input } from "~/components";
 
 export const SellOrders = () => {
   const { t } = useTranslation();
@@ -39,9 +39,8 @@ export const SellOrders = () => {
       <Input
         label="percent"
         onChange={calculateOrder}
-        pattern="[0-9]*"
+        type="number"
         inputMode="numeric"
-        inputType="number"
       />
 
       <Styled.Row divider={false}>

@@ -12,7 +12,7 @@ export const CurrencyWrapper = styled.div`
 export const CurrencySection = styled.div`
   display: flex;
   align-items: center;
-
+  width: max-content;
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing["4xl"]}`};
   color: ${({ theme }) => theme.colors.textColor};
   > img {

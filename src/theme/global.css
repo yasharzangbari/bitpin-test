@@ -7,16 +7,23 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
  html, body , * {
   font-family: "__IranSansX_4cf108", "__IranSansX_Fallback_4cf108";
   margin: 0;
   padding: 0;
   box-sizing : border-box;
+
 }
 
 body {
-  text-align: center;
-  margin: auto
+  margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    width: fit-content;
+  }
 }
 
 a {

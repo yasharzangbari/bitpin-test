@@ -1,3 +1,3 @@
 export const routes = {
-  details: (id: string) => `/details/${id}`,
+  details: (id: string | number) => `/details/${id}`,
 };

@@ -4,14 +4,15 @@ import { requestHandler } from "~/lib/api/requestFactory";
 
 export const useRequest = <TData>(
   keys: Array<string>,
-  request: AxiosRequestConfig
+  request: AxiosRequestConfig,
+  refetch?: boolean
 ): UseQueryResult<TData> => {
   return useQuery({
-    queryKey: [keys, 1],
+    queryKey: keys,
     queryFn: () => requestHandler(request),
-    // refetchInterval: 3000,
-    // initialData: undefined,
-    // gcTime: 0,
-    // staleTime: 0,
+    // refetchInterval: refetch ? 3000 : undefined,
+    initialData: undefined,
+    gcTime: 0,
+    staleTime: 0,
   });
 };

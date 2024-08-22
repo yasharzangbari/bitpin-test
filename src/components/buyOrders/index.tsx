@@ -1,20 +1,21 @@
 import React, { FC } from "react";
-import * as Styled from "./buyOrders.styled";
-import { commaSeparator, timeConvertor } from "~/utils";
-import useTranslation from "next-translate/useTranslation";
-import { useRequest } from "~/hooks/useRequest";
-import { QUERY_KEYS } from "~/constants/queryKeys";
-import { endpoints } from "~/lib/api/endpoints";
+import { commaSeparator } from "~/utils";
 import { QUERY_STRING } from "~/constants/global";
-export const BuyOrders: FC<{ id: string }> = ({ id }) => {
+import { useOrders } from "~/hooks";
+import * as Styled from "./buyOrders.styled";
+import useTranslation from "next-translate/useTranslation";
+import { Input } from "~/components";
+
+export const BuyOrders = () => {
   const { t } = useTranslation();
 
-  const { data, isLoading } = useRequest<any>(
-    [QUERY_KEYS.GET_MATCHES],
-    endpoints.getMarketsActives(id, QUERY_STRING.BUY)
+  const { orders, isLoading, calculateOrder, finalResult } = useOrders(
+    QUERY_STRING.BUY
   );
 
   if (isLoading) return <div>Loading....</div>;
+  if (!orders?.length) return <div>{t("noData")}</div>;
+  console.log("finalResult", finalResult);
   return (
     <Styled.Container>
       <Styled.Header>
@@ -22,8 +23,8 @@ export const BuyOrders: FC<{ id: string }> = ({ id }) => {
         <Styled.Cell align="center">{t("amount")}</Styled.Cell>
         <Styled.Cell align="left">{t("all")}</Styled.Cell>
       </Styled.Header>
-      {data?.orders?.slice(0, 10)?.map((transaction) => (
-        <Styled.Row key={transaction.match_id}>
+      {orders?.map((transaction) => (
+        <Styled.Row divider key={transaction.value}>
           <Styled.Cell align="right" isPrice>
             {commaSeparator(transaction.price)}
           </Styled.Cell>
@@ -36,6 +37,27 @@ export const BuyOrders: FC<{ id: string }> = ({ id }) => {
           </Styled.Cell>
         </Styled.Row>
       ))}
+      <Input
+        label="percent"
+        onChange={calculateOrder}
+        inputMode="numeric"
+        inputType="number"
+      />
+
+      <Styled.Row divider={false}>
+        {t("averagePrice", {
+          averagePrice: commaSeparator(Number(finalResult?.averagePrice)),
+        })}
+      </Styled.Row>
+      <Styled.Row divider={false}>
+        {t("remainVolume", {
+          remainVolume: commaSeparator(Number(finalResult?.remainVolume)),
+        })}
+      </Styled.Row>
+
+      <Styled.Row divider={false}>
+        {t("payOut", { payOut: commaSeparator(Number(finalResult?.payOut)) })}
+      </Styled.Row>
     </Styled.Container>
   );
 };

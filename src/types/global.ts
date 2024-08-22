@@ -1,4 +1,4 @@
-import { tabs } from "~/constants/global";
+import { QUERY_STRING, tabs } from "~/constants/global";
 
 export interface TabsProps {
   children: React.ReactNode;

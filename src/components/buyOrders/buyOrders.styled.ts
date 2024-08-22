@@ -17,12 +17,12 @@ export const Header = styled.div`
   border-bottom: 1px solid #444;
 `;
 
-export const Row = styled.div`
+export const Row = styled.div<{ divider?: boolean }>`
   display: flex;
 
   justify-content: space-between;
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.none}`};
-  border-bottom: 1px solid #333;
+  border-bottom: ${(props) => (props.divider ? `1px solid #333` : "none")};
   &:last-child {
     border-bottom: none;
   }

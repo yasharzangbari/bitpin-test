@@ -4,10 +4,15 @@
  "teter": "تتر",
  "transactions" : "معاملات",
  "buyOrders" : "سفارشات خرید",
- "sellOrders" : "سفارشات فرش",
+ "sellOrders" : "سفارشات فروش",
  "price" : "قیمت",
  "amount" : "مقدار",
  "time" : "زمان",
- "all" : "کل"
+ "all" : "کل",
+ "noData" : "دیتایی وجود ندارد",
+ "averagePrice" : "میانگین قیمت: {{averagePrice}}",
+ "remainVolume" : "مجموع حجم ارز: {{remainVolume}}",
+ "payOut" : "پرداختی شما: {{payOut}} "
+
 
 }

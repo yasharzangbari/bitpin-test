@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const TabsContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   padding: ${({ theme }) => theme.spacing.lg};
-
-  width: 600px;
+  width: 100%;
 `;
 
 export const TabItemContainer = styled.div`

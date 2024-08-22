@@ -8,15 +8,17 @@ import { commaSeparator } from "~/utils";
 import { timeConvertor } from "~/utils/timeConvertor";
 import { Transaction } from "~/types/transactions";
 import useTranslation from "next-translate/useTranslation";
-export const Transactions: FC<{ id: string }> = ({ id }) => {
+export const Transactions = () => {
   const { t } = useTranslation();
 
   const { data, isLoading } = useRequest<Transaction[]>(
     [QUERY_KEYS.GET_MATCHES],
-    endpoints.getMarketsMatches(id)
+    endpoints.getMarketsMatches(id),
+    true
   );
 
   if (isLoading) return <div>Loading....</div>;
+  if (!data?.length) return <div>{t("noData")}</div>;
 
   return (
     <Styled.Container>

@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import * as Styled from "./index.styled";
+import React from "react";
+import * as Styled from "~/styles/home.styled";
 import { CurrencyList, Pagination } from "~/components";
 import { usePaginate } from "~/hooks/usePaginate";
 import { useCurrencies } from "~/hooks/useCurrencies";

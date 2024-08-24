@@ -7,14 +7,14 @@ import { endpoints } from "~/lib/api/endpoints";
 
 export const useOrders = (key: string) => {
   const router = useRouter();
-  const { id } = router.query;
+  const { id = "" } = router.query;
   const [finalResult, setFinalResult] = useState({
     remainVolume: 0,
     averagePrice: 0,
     payOut: 0,
   });
 
-  if (!id) return { orders: [], isLoading: false };
+  // if (!id) return { orders: [], isLoading: false };
 
   const { data, isLoading } = useRequest<Orders>(
     [QUERY_KEYS.GET_ACTIVES],

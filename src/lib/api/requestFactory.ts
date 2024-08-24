@@ -1,5 +1,10 @@
 import apiConfig from "./config";
-import axios, { AxiosError, AxiosPromise, AxiosRequestConfig } from "axios";
+import axios, {
+  AxiosError,
+  AxiosPromise,
+  AxiosRequestConfig,
+  AxiosResponse,
+} from "axios";
 
 export const API = axios.create(apiConfig);
 API.interceptors.request.use(
@@ -12,7 +17,10 @@ API.interceptors.request.use(
 
 API.interceptors.response.use(
   (response) => {
-    return { data: response.data, status: response.status };
+    return {
+      data: response.data,
+      status: response.status,
+    } as AxiosResponse<any>;
   },
   (error: AxiosError) => Promise.reject(error.response)
 );

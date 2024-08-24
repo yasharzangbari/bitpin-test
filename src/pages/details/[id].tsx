@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "./details.styled";
+import * as Styled from "~/styles/details.styled";
 import { BuyOrders, SellOrders, Tabs, Transactions } from "~/components";
 import { ACTIVE_TABS, tabs } from "~/constants/global";
 

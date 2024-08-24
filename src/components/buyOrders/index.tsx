@@ -15,7 +15,7 @@ export const BuyOrders = () => {
 
   if (isLoading) return <div>Loading....</div>;
   if (!orders?.length) return <div>{t("noData")}</div>;
-  console.log("finalResult", finalResult);
+
   return (
     <Styled.Container>
       <Styled.Header>

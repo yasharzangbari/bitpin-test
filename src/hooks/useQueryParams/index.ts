@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 

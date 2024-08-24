@@ -4,7 +4,7 @@ import { BUTTON_COLOR, BUTTON_SHAPE, BUTTON_SIZE } from "./button.types";
 
 const token = getButtonToken();
 
-export const Button = styled.button<{ active: boolean }>`
+export const Button = styled.button<{ active?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;

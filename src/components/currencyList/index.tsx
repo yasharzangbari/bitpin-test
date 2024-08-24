@@ -35,7 +35,7 @@ export const CurrencyList: FC<{ currencies?: Result[] }> = ({ currencies }) => {
       {currencies?.map((currency) => {
         const data = currency?.currency1;
         return (
-          <Styled.CurrencyWrapper>
+          <Styled.CurrencyWrapper key={currency.id}>
             <Styled.CurrencySection>
               <img alt={data?.title} src={data?.image} />
               <Styled.Caption>
